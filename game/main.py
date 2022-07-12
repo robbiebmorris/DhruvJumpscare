@@ -6,7 +6,7 @@ from sys import *
 class Game:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((700,700))
+        self.screen = pygame.display.set_mode((WIDTH,HEIGTH))
         pygame.display.set_caption('Dhruv Jumpscare')
         self.clock = pygame.time.Clock()
         self.level = Level()
