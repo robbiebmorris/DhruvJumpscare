@@ -7,6 +7,7 @@ class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH,HEIGTH))
+        self.background = pygame.image.load("game/graphics/tilemap/ground.png")
         pygame.display.set_caption('Dhruv Jumpscare')
         self.clock = pygame.time.Clock()
         self.level = Level()
@@ -16,7 +17,7 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit() 
                     sys.exit()
-            self.screen.fill("black")
+            self.screen.blit(self.background, (0, 0))
             self.level.run()
             pygame.display.update()
             self.clock.tick(FPS)
@@ -24,3 +25,4 @@ class Game:
 if __name__ == '__main__':
     game = Game()
     game.run()
+
