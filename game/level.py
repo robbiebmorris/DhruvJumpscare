@@ -17,6 +17,8 @@ class Level:
             for col_index, col in enumerate(row):
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
+                if col == "b":
+                    Tile((x, y), [self.obstacle_sprites], "graphics/test/Blank.png")
                 if col == 'x':
                     Tile((x, y), [self.visible_sprites,
                          self.obstacle_sprites], "graphics/test/rock.png")
