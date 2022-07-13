@@ -10,7 +10,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, obstacle_sprites):
         super().__init__(groups)
         self.image = pygame.image.load(
-            "graphics/test/player.png").convert_alpha()
+            "graphics/test/TheWizard.png").convert_alpha()
         self.rect = self.image.get_rect(topleft=pos)
         self.dir = pygame.math.Vector2()
         self.speed = 5
@@ -28,8 +28,12 @@ class Player(pygame.sprite.Sprite):
 
         if (arr[pygame.K_LEFT] == 1):
             self.dir.x = -1
+            self.image = pygame.image.load(
+            "graphics/test/TheWizard.png").convert_alpha()
         elif (arr[pygame.K_RIGHT] == 1):
             self.dir.x = 1
+            self.image = pygame.image.load(
+            "graphics/test/WizardRight.png").convert_alpha()
         else:
             self.dir.x = 0
         # self.rect.center += self.dir * self.speed , had to change this for collide according to tutorial, dont understand why tho
