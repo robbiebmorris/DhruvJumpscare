@@ -19,18 +19,18 @@ class Player(pygame.sprite.Sprite):
     def input(self):
         arr = pygame.key.get_pressed()
 
-        if (arr[pygame.K_UP] == 1):
+        if ((arr[pygame.K_UP] == 1) or (arr[pygame.K_w] == 1)):
             self.dir.y = -1
-        elif (arr[pygame.K_DOWN] == 1):
+        elif ((arr[pygame.K_DOWN] == 1) or (arr[pygame.K_s] == 1)):
             self.dir.y = 1
         else:
             self.dir.y = 0
 
-        if (arr[pygame.K_LEFT] == 1):
+        if (arr[pygame.K_LEFT] == 1 or arr[pygame.K_a] == 1):
             self.dir.x = -1
             self.image = pygame.image.load(
             "graphics/test/TheWizard.png").convert_alpha()
-        elif (arr[pygame.K_RIGHT] == 1):
+        elif ((arr[pygame.K_RIGHT] == 1) or (arr[pygame.K_d])):
             self.dir.x = 1
             self.image = pygame.image.load(
             "graphics/test/WizardRight.png").convert_alpha()
