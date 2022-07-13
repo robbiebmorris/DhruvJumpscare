@@ -2,13 +2,13 @@ import pygame
 from settings import *
 from tile import *
 from player import *
-
+from camera import *
 
 class Level:
     def __init__(self):
 
         self.display_surface = pygame.display.get_surface()
-        self.visible_sprites = pygame.sprite.Group()
+        self.visible_sprites = CameraGroup()
         self.obstacle_sprites = pygame.sprite.Group()
         self.create_map()
 
@@ -29,5 +29,5 @@ class Level:
 
     def run(self):
         # update and draw the game
-        self.visible_sprites.draw(self.display_surface)
+        self.visible_sprites.camera_draw(self.player)
         self.visible_sprites.update()
