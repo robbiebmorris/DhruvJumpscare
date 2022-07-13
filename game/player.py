@@ -10,7 +10,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, obstacle_sprites):
         super().__init__(groups)
         self.image = pygame.image.load(
-            "graphics/test/TheWizard.png").convert_alpha()
+            "game/graphics/test/TheWizard.png").convert_alpha()
         self.rect = self.image.get_rect(topleft=pos)
         self.dir = pygame.math.Vector2()
         self.speed = 5
@@ -29,22 +29,23 @@ class Player(pygame.sprite.Sprite):
         if (arr[pygame.K_LEFT] == 1 or arr[pygame.K_a] == 1):
             self.dir.x = -1
             self.image = pygame.image.load(
-            "graphics/test/TheWizard.png").convert_alpha()
+                "game/graphics/test/TheWizard.png").convert_alpha()
         elif ((arr[pygame.K_RIGHT] == 1) or (arr[pygame.K_d])):
             self.dir.x = 1
             self.image = pygame.image.load(
-            "graphics/test/WizardRight.png").convert_alpha()
+                "game/graphics/test/WizardRight.png").convert_alpha()
         else:
             self.dir.x = 0
         # self.rect.center += self.dir * self.speed , had to change this for collide according to tutorial, dont understand why tho
-    def move(self,speed):
+
+    def move(self, speed):
         if self.dir.magnitude() != 0:
             self.dir = self.dir.normalize()
         self.rect.x += self.dir.x * speed
         self.collide("h")
         self.rect.y += self.dir.y * speed
-        self.collide("v") 
-    
+        self.collide("v")
+
     def collide(self, dir):
         for sprite in self.obstacle_sprites:
             if dir == "h":
@@ -59,7 +60,7 @@ class Player(pygame.sprite.Sprite):
                         self.rect.bottom = sprite.rect.top
                     if self.dir.y < 0:
                         self.rect.top = sprite.rect.bottom
-                #why does this not work? when the bottom code is in place, the game ends when the sprite collides with an error
+                # why does this not work? when the bottom code is in place, the game ends when the sprite collides with an error
                 # if self.dir.x > 0:
                 #     self.rect = sprite.rect.left
                 # if self.dir.x < 0:
