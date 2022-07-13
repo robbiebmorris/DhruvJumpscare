@@ -7,7 +7,7 @@ class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH,HEIGTH))
-        self.background = pygame.image.load("game/graphics/tilemap/ground.png")
+        self.background = pygame.image.load("graphics/tilemap/ground.png")
         pygame.display.set_caption('Dhruv Jumpscare')
         self.clock = pygame.time.Clock()
         self.level = Level()
