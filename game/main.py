@@ -10,17 +10,19 @@ from spells import *
 class Game:
     def __init__(self):
         pygame.init()
-        self.bpos_x = 0
-        self.bpos_y = 0
         self.screen = pygame.display.set_mode((WIDTH, HEIGTH))
-        self.background = pygame.image.load("game/graphics/tilemap/ground.png")
-        pygame.display.set_caption('Dhruv Jumpscare')
-        self.clock = pygame.time.Clock()
-        self.level = Level()
         self.backpack = Button(20, 636, "game/graphics/test/backpack.png")
         self.map = Button(94, 636, "game/graphics/test/map.png")
         self.spellbook = Button(168, 636, "game/graphics/test/spellbook.png")
         self.settings = Button(242, 636, "game/graphics/test/settings.png")
+        self.bpos_x = 0
+        self.bpos_y = 0
+        self.background = pygame.image.load("game/graphics/tilemap/ground.png")
+        self.screen.blit(self.background,(0,0))
+        pygame.display.set_caption('Dhruv Jumpscare')
+        self.clock = pygame.time.Clock()
+        self.level = Level()
+        
 
     def run(self):
         while True:
@@ -28,12 +30,11 @@ class Game:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-            self.screen.blit(self.background, (self.bpos_x, self.bpos_y))
             self.backpack.draw(self)
             self.map.draw(self)
             self.spellbook.draw(self)
             self.settings.draw(self)
-            self.level.run()
+            self.level.run(self)
             checkSpell(self.spellbook, self)
             pygame.display.update()
             self.clock.tick(FPS)

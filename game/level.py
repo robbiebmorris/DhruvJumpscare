@@ -31,7 +31,7 @@ class Level:
                     Tile((x, y), [self.obstacle_sprites],
                          "game/graphics/test/Blank.png")
 
-    def run(self):
+    def run(self, game):
         # update and draw the game
-        self.visible_sprites.camera_draw(self.player)
+        self.visible_sprites.camera_draw(self.player, game)
         self.visible_sprites.update()

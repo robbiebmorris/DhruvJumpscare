@@ -7,8 +7,10 @@ from sys import *
 
 class Button(pygame.sprite.Group):
     def __init__(self, x, y, path):
-        self.x = 0
-        self.y = 0
+        self.a = 0
+        self.b = 0
+        self.x = x
+        self.y = y
         self.var1 = False
         self.counter = 0
         self.external = False
@@ -16,7 +18,8 @@ class Button(pygame.sprite.Group):
         #ex. path = "graphics/test/rock.png"
         self.image = pygame.image.load(path).convert_alpha()
         self.rect = self.image.get_rect()
-        self.rect.topleft = (x,y)
+        self.rect.topleft = (self.x,self.y)
+
         # self.width = self.image.get_width()
         # self.height = self.image.get_height()
         self.clicked = False
