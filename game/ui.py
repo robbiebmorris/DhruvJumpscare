@@ -9,12 +9,9 @@ from spells import *
 def inventory(button, game):
     if button.external == True:
         button.counter += 1
-        path = "game/graphics/test/Crossheir.png"
-        if button.var1 == False:
-            button.a, button.b = pygame.mouse.get_pos()
-        crossheir = Button(button.a, button.b - 32, path)
+        path = "game/graphics/test/Inventory.png"
+        crossheir = Button(0, 0, path)
         crossheir.draw(game)
     if pygame.mouse.get_pressed()[0] == 1 and button.counter > 120:
         button.var1 = True
-        button.path = "game/graphics/test/dhruv_icon.png"
         button.counter = 0

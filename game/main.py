@@ -5,6 +5,7 @@ from level import Level
 from settings import *
 from sys import *
 from spells import *
+from ui import *
 
 
 class Game:
@@ -36,6 +37,7 @@ class Game:
             self.settings.draw(self)
             self.level.run(self)
             checkSpell(self.spellbook, self)
+            inventory(self.backpack, self)
             pygame.display.update()
             self.clock.tick(FPS)
 
