@@ -11,12 +11,12 @@ class Button(pygame.sprite.Group):
         self.b = 0
         self.x = x
         self.y = y
+        self.path = path
         self.var1 = False
         self.counter = 0
         self.external = False
-        self.image = path
         #ex. path = "graphics/test/rock.png"
-        self.image = pygame.image.load(path).convert_alpha()
+        self.image = pygame.image.load(self.path).convert_alpha()
         self.rect = self.image.get_rect()
         self.rect.topleft = (self.x,self.y)
 

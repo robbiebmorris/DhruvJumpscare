@@ -18,4 +18,5 @@ def checkSpell(button, game):
         crossheir.draw(game)
     if pygame.mouse.get_pressed()[0] == 1 and button.counter > 120:
         button.var1 = True
+        button.path = "game/graphics/test/dhruv_icon.png"
         button.counter = 0
