@@ -20,16 +20,16 @@ class Level:
                 y = row_index * TILESIZE
                 if col == "b":
                     Tile((x, y), [self.obstacle_sprites],
-                         "game/graphics/test/Blank.png")
+                         "graphics/test/Blank.png")
                 if col == 'x':
                     Tile((x, y), [self.visible_sprites,
-                         self.obstacle_sprites], "game/graphics/test/rock.png")
+                         self.obstacle_sprites], "graphics/test/rock.png")
                 if col == 'p':
                     self.player = Player(
                         (x, y), [self.visible_sprites], self.obstacle_sprites)
                 if col == "t":
                     Tile((x, y), [self.obstacle_sprites],
-                         "game/graphics/test/Blank.png")
+                         "graphics/test/Blank.png")
 
     def run(self, game):
         # update and draw the game

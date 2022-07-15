@@ -8,12 +8,15 @@ from level import *
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, obstacle_sprites):
+        self.leftward = True
+        self.counter = 8
+        self.walking = False
         super().__init__(groups)
         self.image = pygame.image.load(
-            "game/graphics/test/TheWizard.png").convert_alpha()
+            "graphics/test/TheWizard.png").convert_alpha()
         self.rect = self.image.get_rect(topleft=pos)
         self.dir = pygame.math.Vector2()
-        self.speed = 5
+        self.speed = 7
         self.obstacle_sprites = obstacle_sprites
 
     def input(self):
@@ -21,19 +24,79 @@ class Player(pygame.sprite.Sprite):
 
         if ((arr[pygame.K_UP] == 1) or (arr[pygame.K_w] == 1)):
             self.dir.y = -1
+            self.counter += 1
+            if self.counter > 8:
+                if self.walking == False:
+                    if self.leftward == True:
+                        self.image = pygame.image.load("graphics/test/wizard-down.png").convert_alpha()
+                        self.walking = True
+                        self.counter = 0
+                    if self.leftward == False:
+                        self.image = pygame.image.load("graphics/test/wizard-downRight.png").convert_alpha()
+                        self.walking = True
+                        self.counter = 0
+                else:
+                    if self.leftward == True:
+                        self.image = pygame.image.load("graphics/test/TheWizard.png").convert_alpha()
+                        self.walking = False
+                        self.counter = 0
+                    if self.leftward == False:
+                        self.image = pygame.image.load("graphics/test/WizardRight.png").convert_alpha()
+                        self.walking = False
+                        self.counter = 0
         elif ((arr[pygame.K_DOWN] == 1) or (arr[pygame.K_s] == 1)):
             self.dir.y = 1
+            self.counter += 1
+            if self.counter > 8:
+                if self.walking == False:
+                    if self.leftward == True:
+                        self.image = pygame.image.load("graphics/test/wizard-down.png").convert_alpha()
+                        self.walking = True
+                        self.counter = 0
+                    if self.leftward == False:
+                        self.image = pygame.image.load("graphics/test/wizard-downRight.png").convert_alpha()
+                        self.walking = True
+                        self.counter = 0
+                else:
+                    if self.leftward == True:
+                        self.image = pygame.image.load("graphics/test/TheWizard.png").convert_alpha()
+                        self.walking = False
+                        self.counter = 0
+                    if self.leftward == False:
+                        self.image = pygame.image.load("graphics/test/WizardRight.png").convert_alpha()
+                        self.walking = False
+                        self.counter = 0
         else:
             self.dir.y = 0
 
         if (arr[pygame.K_LEFT] == 1 or arr[pygame.K_a] == 1):
             self.dir.x = -1
-            self.image = pygame.image.load(
-                "game/graphics/test/TheWizard.png").convert_alpha()
+            self.leftward = True
+            if (arr[pygame.K_UP] == 0) and (arr[pygame.K_w] == 0) and (arr[pygame.K_DOWN] == 0) and (arr[pygame.K_s] == 0):
+                self.counter += 1
+                if self.counter > 8:
+                    if self.walking == False:
+                        self.image = pygame.image.load("graphics/test/wizard-down.png").convert_alpha()
+                        self.walking = True
+                        self.counter = 0
+                    else: 
+                        self.image = pygame.image.load("graphics/test/TheWizard.png").convert_alpha()
+                        self.walking = False
+                        self.counter = 0
         elif ((arr[pygame.K_RIGHT] == 1) or (arr[pygame.K_d])):
             self.dir.x = 1
-            self.image = pygame.image.load(
-                "game/graphics/test/WizardRight.png").convert_alpha()
+            self.leftward = False
+            if (arr[pygame.K_UP] == 0) and (arr[pygame.K_w] == 0) and (arr[pygame.K_DOWN] == 0) and (arr[pygame.K_s] == 0):
+                self.counter += 1
+                if self.counter > 8:
+                    if self.walking == False:
+                            self.image = pygame.image.load("graphics/test/wizard-downRight.png").convert_alpha()
+                            self.walking = True
+                            self.counter = 0
+                    else: 
+                            self.image = pygame.image.load("graphics/test/WizardRight.png").convert_alpha()
+                            self.walking = False
+                            self.counter = 0
         else:
             self.dir.x = 0
         # self.rect.center += self.dir * self.speed , had to change this for collide according to tutorial, dont understand why tho
