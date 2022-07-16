@@ -13,7 +13,7 @@ class Player(pygame.sprite.Sprite):
         self.walking = False
         super().__init__(groups)
         self.image = pygame.image.load(
-            "graphics/test/TheWizard.png").convert_alpha()
+            "game/graphics/test/TheWizard.png").convert_alpha()
         self.rect = self.image.get_rect(topleft=pos)
         self.dir = pygame.math.Vector2()
         self.speed = 7
@@ -28,20 +28,20 @@ class Player(pygame.sprite.Sprite):
             if self.counter > 8:
                 if self.walking == False:
                     if self.leftward == True:
-                        self.image = pygame.image.load("graphics/test/wizard-down.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/wizard-down.png").convert_alpha()
                         self.walking = True
                         self.counter = 0
                     if self.leftward == False:
-                        self.image = pygame.image.load("graphics/test/wizard-downRight.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/wizard-downRight.png").convert_alpha()
                         self.walking = True
                         self.counter = 0
                 else:
                     if self.leftward == True:
-                        self.image = pygame.image.load("graphics/test/TheWizard.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/TheWizard.png").convert_alpha()
                         self.walking = False
                         self.counter = 0
                     if self.leftward == False:
-                        self.image = pygame.image.load("graphics/test/WizardRight.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/WizardRight.png").convert_alpha()
                         self.walking = False
                         self.counter = 0
         elif ((arr[pygame.K_DOWN] == 1) or (arr[pygame.K_s] == 1)):
@@ -50,20 +50,20 @@ class Player(pygame.sprite.Sprite):
             if self.counter > 8:
                 if self.walking == False:
                     if self.leftward == True:
-                        self.image = pygame.image.load("graphics/test/wizard-down.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/wizard-down.png").convert_alpha()
                         self.walking = True
                         self.counter = 0
                     if self.leftward == False:
-                        self.image = pygame.image.load("graphics/test/wizard-downRight.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/wizard-downRight.png").convert_alpha()
                         self.walking = True
                         self.counter = 0
                 else:
                     if self.leftward == True:
-                        self.image = pygame.image.load("graphics/test/TheWizard.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/TheWizard.png").convert_alpha()
                         self.walking = False
                         self.counter = 0
                     if self.leftward == False:
-                        self.image = pygame.image.load("graphics/test/WizardRight.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/WizardRight.png").convert_alpha()
                         self.walking = False
                         self.counter = 0
         else:
@@ -76,11 +76,11 @@ class Player(pygame.sprite.Sprite):
                 self.counter += 1
                 if self.counter > 8:
                     if self.walking == False:
-                        self.image = pygame.image.load("graphics/test/wizard-down.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/wizard-down.png").convert_alpha()
                         self.walking = True
                         self.counter = 0
                     else: 
-                        self.image = pygame.image.load("graphics/test/TheWizard.png").convert_alpha()
+                        self.image = pygame.image.load("game/graphics/test/TheWizard.png").convert_alpha()
                         self.walking = False
                         self.counter = 0
         elif ((arr[pygame.K_RIGHT] == 1) or (arr[pygame.K_d])):
@@ -90,11 +90,11 @@ class Player(pygame.sprite.Sprite):
                 self.counter += 1
                 if self.counter > 8:
                     if self.walking == False:
-                            self.image = pygame.image.load("graphics/test/wizard-downRight.png").convert_alpha()
+                            self.image = pygame.image.load("game/graphics/test/wizard-downRight.png").convert_alpha()
                             self.walking = True
                             self.counter = 0
                     else: 
-                            self.image = pygame.image.load("graphics/test/WizardRight.png").convert_alpha()
+                            self.image = pygame.image.load("game/graphics/test/WizardRight.png").convert_alpha()
                             self.walking = False
                             self.counter = 0
         else:

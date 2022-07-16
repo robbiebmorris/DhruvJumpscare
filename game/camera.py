@@ -19,7 +19,6 @@ class CameraGroup(pygame.sprite.Group):
         player_x = player.rect.centerx - (self.w / 2)
         player_y = player.rect.centery - (self.h / 2)
         game.screen.blit(game.background, (game.bpos_x - player_x, game.bpos_y - player_y))
-        pygame.image.load(game.backpack.path).convert_alpha()
         # game.screen.blit(game.backpack, ((20- player_x), (636- player_y)))
         # game.backpack = Button((20- player_x), (636- player_y), "game/graphics/test/backpack.png")
         # game.map = Button((94- player_x), (636- player_y), "game/graphics/test/map.png")
